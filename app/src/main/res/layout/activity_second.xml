@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#70707F"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.er_killersudoku20.GameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/gameView">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            app:layout_constraintLeft_toLeftOf="@+id/layout"
+            app:layout_constraintRight_toLeftOf="@+id/btn2"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="2"
+            app:layout_constraintLeft_toRightOf="@id/btn1"
+            app:layout_constraintRight_toLeftOf="@id/btn3"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="3"
+            app:layout_constraintLeft_toRightOf="@id/btn2"
+            app:layout_constraintRight_toLeftOf="@id/btn4"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="4"
+            app:layout_constraintLeft_toRightOf="@id/btn3"
+            app:layout_constraintRight_toLeftOf="@id/btn5"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="5"
+            app:layout_constraintLeft_toRightOf="@id/btn4"
+            app:layout_constraintRight_toLeftOf="@id/btn6"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="6"
+            app:layout_constraintLeft_toRightOf="@id/btn5"
+            app:layout_constraintRight_toLeftOf="@id/btn7"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="7"
+            app:layout_constraintLeft_toRightOf="@id/btn6"
+            app:layout_constraintRight_toLeftOf="@id/btn8"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="8"
+            app:layout_constraintLeft_toRightOf="@id/btn7"
+            app:layout_constraintRight_toLeftOf="@id/btn9"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="9"
+            app:layout_constraintLeft_toRightOf="@id/btn8"
+            app:layout_constraintRight_toRightOf="@id/layout"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ER_KillerSudoku2.0</string>
+    <string name="button">Button</string>
+    <string name="medium">Medium</string>
+    <string name="easy">easy</string>
+    <string name="hard">hard</string>
+</resources>
