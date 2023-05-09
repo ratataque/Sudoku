@@ -26,6 +26,8 @@ public class GameView extends View {
     private final int paintstroke = 6;
     private final String aidecolor = "#d6f1ff";
 
+    public boolean brouillon;
+
     public int x_selectedcell = -1;
     public int y_selectedcell = -1;
 
@@ -131,6 +133,7 @@ public class GameView extends View {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void tracerLesChiffreInitiale(Canvas canvas) {
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setStrokeWidth(paintstroke/2);
@@ -151,6 +154,13 @@ public class GameView extends View {
                         paint.setColor(Color.RED);
                         paint.setTextSize( celluleWidth * 0.7f );
                         canvas.drawText(String.valueOf(cells[y][x].valeurTest),x * celluleWidth + celluleWidth / 2, y * celluleWidth + celluleWidth * 0.75f + margin, paint);
+                    }
+                }
+                paint.setColor(Color.BLACK);
+                paint.setTextSize( celluleWidth * 0.4f );
+                for (int i = 0; i < 9; i++) {
+                    if (cells[y][x].note[i]) {
+                        canvas.drawText(String.valueOf(i+1),x * celluleWidth + celluleWidth / 5 + i%3*35 , y * celluleWidth + 35 + Math.floorDiv(i,3)*40 + margin, paint);
                     }
                 }
             }
@@ -195,9 +205,33 @@ public class GameView extends View {
 
         if (!cells[y_selectedcell][x_selectedcell].isInitial) {
             cells[y_selectedcell][x_selectedcell].valeurtestistrue = cells[y_selectedcell][x_selectedcell].getValeur() == nbr;
+            for (int i = 0;i < 9;i++) {
+                cells[y_selectedcell][x_selectedcell].note[i] = false;
+            }
             cells[y_selectedcell][x_selectedcell].valeurTest = nbr;
             invalidate();
 
+        }
+    }
+
+    public void eraseValue() {
+        if (!cells[y_selectedcell][x_selectedcell].isInitial) {
+            cells[y_selectedcell][x_selectedcell].valeurtestistrue = null;
+            for (int i = 0;i < 9;i++) {
+                cells[y_selectedcell][x_selectedcell].note[i] = false;
+            }
+            invalidate();
+        }
+    }
+
+    public void setNote(int nbr) {
+        if (!cells[y_selectedcell][x_selectedcell].isInitial && cells[y_selectedcell][x_selectedcell].note[nbr-1] == false) {
+            cells[y_selectedcell][x_selectedcell].note[nbr-1] = true;
+            invalidate();
+        }
+        else if (!cells[y_selectedcell][x_selectedcell].isInitial && cells[y_selectedcell][x_selectedcell].note[nbr-1] == true) {
+            cells[y_selectedcell][x_selectedcell].note[nbr-1] = false;
+            invalidate();
         }
     }
 }
